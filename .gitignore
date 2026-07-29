@@ -1,0 +1,27 @@
+# Instance-local environment state
+/.hf_home/
+/.venv-backups/
+/AGENTS.md
+/CLAUDE.md
+
+# Project build and generated outputs
+/build*/
+/out/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+compile_commands.json
+
+# Editor/OS noise
+.cache/
+.DS_Store
+*.swp
+*~
+

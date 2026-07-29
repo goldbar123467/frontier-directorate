@@ -1,0 +1,40 @@
+{
+  "captured_utc": "2026-07-29",
+  "purpose": "Gate Zero environment provenance; not a performance result",
+  "workspace": {
+    "path": "/workspace",
+    "is_persistent_volume": false,
+    "filesystem": "overlay",
+    "reported_capacity_gib": 70
+  },
+  "platform": {
+    "os": "Ubuntu 24.04.4 LTS",
+    "kernel": "6.8.0-124-generic",
+    "architecture": "x86_64",
+    "glibc": "2.39"
+  },
+  "compute_observations": {
+    "shell_logical_cpus": 128,
+    "portal_allocated_cpus": 61,
+    "shell_ram_gib": 125,
+    "portal_ram_bytes": 64072187904,
+    "note": "Host/affinity and portal allocation views differ; benchmark runs must capture affinity and quota live."
+  },
+  "gpu": {
+    "model": "NVIDIA GeForce RTX 5080",
+    "memory_mib": 16303,
+    "compute_capability": "12.0",
+    "driver": "595.71.05",
+    "installed_cuda": "13.2",
+    "used_by_gate_zero": false
+  },
+  "toolchain": {
+    "gcc": "13.3.0",
+    "clang_explicit_binary": "16.0.6",
+    "cmake": "3.28.3",
+    "ninja": "1.11.1",
+    "git": "2.43.0",
+    "python": "3.12.13"
+  }
+}
+

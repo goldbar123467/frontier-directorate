@@ -1,0 +1,29 @@
+# Governing files
+find /etc/vast_agents -maxdepth 1 -type f -name '*.md' -print -exec sha256sum {} \;
+sha256sum /root/.codex/attachments/48b451ff-95d7-400b-ba0d-203f03b8a55c/pasted-text-1.txt /etc/vast-agents-guide.md
+
+# Pre-artifact repository state
+find /workspace -maxdepth 3 -mindepth 1 -printf '%y %p\n' | sort
+git -C /workspace status --short --branch
+git -C /workspace log -5 --oneline --decorate
+
+# Toolchain
+uname -a
+sed -n '1,20p' /etc/os-release
+cc --version
+c++ --version
+cmake --version
+ninja --version
+git --version
+pkg-config --version
+python3 --version
+. /opt/nvm/nvm.sh && node --version && npm --version
+
+# Installed analysis and test tools
+command -v clang clang-tidy clang-format cppcheck include-what-you-use valgrind gcov lcov llvm-cov doxygen hyperfine
+ctest --version
+pytest --version
+
+# Live instance capability record
+vast-capabilities metrics,packages
+

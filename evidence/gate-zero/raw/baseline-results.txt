@@ -1,0 +1,66 @@
+Captured: 2026-07-29 UTC
+
+INITIAL WORKSPACE
+d /workspace/.hf_home
+d /workspace/.venv-backups
+d /workspace/.venv-backups/46154084
+f /workspace/.venv-backups/46154084/backup.log
+f /workspace/.venv-backups/46154084/venv-main-2026-07-29-0049.txt
+l /workspace/.venv-backups/46154084/venv-main-latest.txt
+l /workspace/AGENTS.md -> /etc/vast-agents-guide.md
+l /workspace/CLAUDE.md -> /etc/vast-agents-guide.md
+
+GIT
+fatal: not a git repository (or any of the parent directories): .git
+
+PLATFORM
+Linux 1b15f369deaa 6.8.0-124-generic x86_64 GNU/Linux
+Ubuntu 24.04.4 LTS (Noble Numbat)
+getconf LONG_BIT: 64
+nproc: 128
+workspace filesystem: overlay, 70G total, 1% used
+workspace_is_volume: false
+
+TOOLCHAIN
+GCC C/C++ 13.3.0
+clang (unsuffixed): absent
+clang-16 / clang++-16: Ubuntu clang 16.0.6
+CMake 3.28.3
+Ninja 1.11.1
+GNU Make 4.3
+Git 2.43.0
+pkg-config 1.8.1
+Python 3.12.13
+Node 24.16.0
+npm 11.13.0
+
+QUALITY TOOLS
+CTest 3.28.3
+pytest 9.1.1
+gcov 13.3.0
+GCC sanitizer runtimes: ASan, UBSan, LSan, TSan resolvable
+clang-tidy: absent
+cppcheck: absent
+include-what-you-use: absent
+valgrind: absent
+lcov: absent
+llvm-cov: absent
+doxygen: absent
+hyperfine: absent
+
+PROJECT ARTIFACT COUNTS AT BASELINE
+source files: 0
+build definitions: 0
+dependency manifests: 0
+test definitions: 0
+benchmark definitions: 0
+project documentation: 0
+Git commits: not applicable; repository absent
+
+LIVE CAPABILITY SUMMARY
+GPU: NVIDIA GeForce RTX 5080, compute capability 12.0, 16,303 MB
+CUDA: installed/driver maximum 13.2
+Portal CPU allocation reported: 61
+Portal RAM reported: 64,072,187,904 bytes
+No project benchmark may use these facts as performance evidence.
+

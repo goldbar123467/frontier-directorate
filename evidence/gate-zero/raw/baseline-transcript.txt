@@ -1,0 +1,179 @@
+CAPTURE CONTEXT
+UTC date: 2026-07-29
+working directory: /workspace
+
+COMMAND
+pwd
+OUTPUT
+/workspace
+EXIT 0
+
+COMMAND
+find /workspace -maxdepth 3 -mindepth 1 -printf '%y %p\n' | sort
+OUTPUT
+d /workspace/.hf_home
+d /workspace/.venv-backups
+d /workspace/.venv-backups/46154084
+f /workspace/.venv-backups/46154084/backup.log
+f /workspace/.venv-backups/46154084/venv-main-2026-07-29-0049.txt
+l /workspace/.venv-backups/46154084/venv-main-latest.txt
+l /workspace/AGENTS.md
+l /workspace/CLAUDE.md
+EXIT 0
+
+COMMAND
+git -C /workspace status --short --branch
+STDERR
+fatal: not a git repository (or any of the parent directories): .git
+EXIT 128
+
+COMMAND
+git -C /workspace log -5 --oneline --decorate
+STDERR
+fatal: not a git repository (or any of the parent directories): .git
+EXIT 128
+
+COMMAND
+ls -la /workspace /etc/vast_agents
+OUTPUT
+/etc/vast_agents:
+total 28
+drwxr-xr-x 1 root root    29 Jun 15 13:37 .
+drwxr-xr-x 1 root root  4096 Jul 29 00:55 ..
+-rw-r--r-- 1 root root 22315 Jun 15 13:37 base.md
+
+/workspace:
+total 4
+drwxrwxr-x 4 root root   97 Jul 29 00:49 .
+drwxr-xr-x 1 root root 4096 Jul 29 00:49 ..
+drwxrwxr-x 2 root root    6 Jul 29 00:49 .hf_home
+drwxrwxr-x 3 root root   22 Jul 29 00:49 .venv-backups
+lrwxrwxrwx 1 root root   25 Jul 29 00:49 AGENTS.md -> /etc/vast-agents-guide.md
+lrwxrwxrwx 1 root root   25 Jul 29 00:49 CLAUDE.md -> /etc/vast-agents-guide.md
+EXIT 0
+
+COMMAND
+find /etc/vast_agents -maxdepth 1 -type f -name '*.md' -print -exec sha256sum {} \;
+OUTPUT
+/etc/vast_agents/base.md
+0ce37b2aceef111a8865fc4eb50b4df8b640f071b23b7cf25c86a9c03d159c6d  /etc/vast_agents/base.md
+EXIT 0
+
+COMMAND
+sha256sum /root/.codex/attachments/48b451ff-95d7-400b-ba0d-203f03b8a55c/pasted-text-1.txt /workspace/AGENTS.md /workspace/CLAUDE.md
+OUTPUT
+5235d46f948d8d233cecf61fdfb18622c02977935168578fbab46c6d10f21fb6  /root/.codex/attachments/48b451ff-95d7-400b-ba0d-203f03b8a55c/pasted-text-1.txt
+06914e8fe301bee48b4c9731a35f963a51e7449e9bf3eabd1c761029b221db74  /workspace/AGENTS.md
+06914e8fe301bee48b4c9731a35f963a51e7449e9bf3eabd1c761029b221db74  /workspace/CLAUDE.md
+EXIT 0
+
+COMMAND
+uname -a
+OUTPUT
+Linux 1b15f369deaa 6.8.0-124-generic #124-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 13:00:45 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+EXIT 0
+
+COMMAND
+cc --version | head -1
+OUTPUT
+cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+EXIT 0
+
+COMMAND
+c++ --version | head -1
+OUTPUT
+c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+EXIT 0
+
+COMMAND
+clang --version | head -1
+STDERR
+/bin/bash: line 8: clang: command not found
+EXIT 0 (pipeline status without pipefail; unsuffixed launcher absent)
+
+COMMAND
+/usr/bin/clang-16 --version | head -1
+OUTPUT
+Ubuntu clang version 16.0.6 (23ubuntu4)
+EXIT 0
+
+COMMAND
+cmake --version | head -1
+OUTPUT
+cmake version 3.28.3
+EXIT 0
+
+COMMAND
+ninja --version
+OUTPUT
+1.11.1
+EXIT 0
+
+COMMAND
+make --version | head -1
+OUTPUT
+GNU Make 4.3
+EXIT 0
+
+COMMAND
+git --version
+OUTPUT
+git version 2.43.0
+EXIT 0
+
+COMMAND
+python3 --version
+OUTPUT
+Python 3.12.13
+EXIT 0
+
+COMMAND
+. /opt/nvm/nvm.sh && node --version && npm --version
+OUTPUT
+v24.16.0
+11.13.0
+EXIT 0
+
+COMMAND
+for x in clang-tidy clang-format cppcheck include-what-you-use valgrind gcov lcov llvm-cov doxygen sphinx-build hyperfine; do ...; done
+OUTPUT
+clang-tidy: absent
+clang-format: absent
+cppcheck: absent
+include-what-you-use: absent
+valgrind: absent
+gcov (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+lcov: absent
+llvm-cov: absent
+doxygen: absent
+sphinx-build: absent
+hyperfine: absent
+EXIT 0
+
+COMMAND
+ctest --version | head -1
+OUTPUT
+ctest version 3.28.3
+EXIT 0
+
+COMMAND
+pytest --version | head -1
+OUTPUT
+pytest 9.1.1
+EXIT 0
+
+COMMAND
+getconf LONG_BIT; nproc; free -h; df -h /workspace
+OUTPUT
+64
+128
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        11Gi        40Gi        44Mi        76Gi       114Gi
+Swap:          255Gi        90Mi       255Gi
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          70G  659M   70G   1% /
+EXIT 0
+
+POST-BASELINE NOTE
+Gate Zero directory and documentation creation began after the initial tree and
+Git commands above. This transcript does not substitute current-state evidence.
