@@ -75,14 +75,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Clang and Ninja
-        run: sudo apt-get update && sudo apt-get install -y clang ninja-build
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
       - name: Configure
         run: >-
           cmake -S . -B build -G Ninja
           -DCMAKE_BUILD_TYPE=Debug
-          -DCMAKE_C_COMPILER=clang
-          -DCMAKE_CXX_COMPILER=clang++
+          -DCMAKE_C_COMPILER=gcc
+          -DCMAKE_CXX_COMPILER=g++
           -DFD_WARNINGS_AS_ERRORS=ON
           -DFD_BUILD_BENCHMARKS=OFF
           -DFD_ENABLE_TSAN=ON
