@@ -1,5 +1,8 @@
 # Frontier Directorate
 
+> **Status: In progress.** Update 01 is implemented locally but remains
+> unverified until its committed evidence passes independent Warden review.
+
 Frontier Directorate is a terminal-first procedural grand-strategy logistics
 game and multi-agent reinforcement-learning research environment. The
 authoritative simulation is written in C; C++ owns orchestration, clients, and
