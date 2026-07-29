@@ -1,0 +1,25 @@
+---
+# glibc does not provide the optional C11 Annex K memcpy_s/memset_s APIs. The
+# project uses compile-time-sized copies or explicitly bounds dynamic lengths;
+# analyzer memory-safety checks remain enabled. This portability-only checker
+# is therefore disabled locally instead of weakening compiler warnings.
+Checks: >-
+  -*,
+  clang-analyzer-*,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  bugprone-assert-side-effect,
+  bugprone-branch-clone,
+  bugprone-infinite-loop,
+  bugprone-integer-division,
+  bugprone-misplaced-widening-cast,
+  bugprone-narrowing-conversions,
+  bugprone-sizeof-expression,
+  bugprone-suspicious-memory-comparison,
+  bugprone-suspicious-memset-usage,
+  bugprone-undefined-memory-manipulation,
+  performance-*,
+  portability-*
+WarningsAsErrors: '*'
+HeaderFilterRegex: '(^|/)(include|src)/'
+FormatStyle: none
+...

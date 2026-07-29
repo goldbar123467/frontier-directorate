@@ -21,6 +21,10 @@ Status: Gate Zero proposal, frozen for U01 implementation after approval.
 - No exception, `errno`, logging callback, or global last-error crosses the ABI.
   Every call returns `fd_result`; optional caller diagnostics receive stable
   code, field, index, and bounded UTF-8 explanatory text.
+- Allocator callbacks are non-throwing. C++ sees `noexcept` callback-pointer
+  types so a potentially throwing function is rejected at compile time; C
+  callers must return null on allocation failure and must not unwind or
+  `longjmp` into the core.
 - The same world cannot be called concurrently. Separate worlds under the same
   immutable context can be called concurrently. Rendering/querying is not safe
   concurrently with stepping that same world unless using a snapshot.

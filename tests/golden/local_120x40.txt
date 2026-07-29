@@ -1,0 +1,40 @@
+FRONTIER DIRECTORATE | LOCAL TILE MAP | ADMIN/OMNISCIENT REFERENCE
+Tick 0 | Day 1, Year 1 | PAUSED | Terminal: N/A-U01
+     012345678901234567890123456789012345678901234567   INSPECTOR | immutable C snapshot
+    +------------------------------------------------+  Scope: REFERENCE snapshot
+  0 |~~~~~~~~~~~~~f.^...^.^...^f..f.....f..fff......f|  Selected: (17,11)
+  1 |~~~~~~~~~~~~~~..f...f..f.f...f.....ff..v..v..^v.|  Glyph: @ over :
+  2 |~~~~~~~~~~~~~~rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.|  Terrain: grassland
+  3 |~~~~~~~~~~~~~~cvff...fvv.v.....^.v.fv..fff.v..^.|  Elev/rain: 813cm / 1060mm
+  4 |~~~~~~~~~~~~~~::^^...ff..f......f..^...f.f.ff..f|  Overlays: road-candidate
+  5 |~~~~~~~~~~~~~~.:.^.f...^....f...f....f^..^.....f|  Settlement: none
+  6 |~~~~~~~~~~~~~.v:.f^.ff^..^^.^f.^.f........^...f.|  Region: Quibeyor Reach #4294967297
+  7 |~~~~~~~~~~~~~~~:...^.....^..ff...^.f......f^....|  Tile owner: Yornaul Council #4294967300
+  8 |~~~~~~~~~~~~~~^:..^^f.f.^f....^f.^f.f.f.^^....ff|  Local polity: Yornaul Council #4294967300
+  9 |~~~~~~~~~~~~~~~:ffff..^^f.....^fff.....fff.f.ff.|  Foreign A: Quififi Survey #4294967301
+ 10 |~~~~~~~~~~~~~~~:^...f..f.f^.^fff........f...^...|  Foreign B: Yoryorbe Company #4294967302
+ 11 |~~~~~~~~~~~~~..::@::...f......f..........f^...f.|  Manifest: e0223dd3
+ 12 |~~~~~~~~~~~~~~~.^..:^^^..f^f.....ff^.....f.f..^.|  State: 15e1d093
+ 13 |~~~~~~~~~~~~~~....^::....f..f^.^^ff.....f.^^.f.^|  Seed: 000000000000002a
+ 14 |~~~~~~~~~~~~~.....f.::.fff..f........ff.ff^...ff|
+ 15 |~~~~~~~~~~~~~v..f.^.f:::::....^^...ff.ff^.......|
+ 16 |~~~~~~~~~~~~~~~.f.^^..f.f:::::^.f....f..^.ff....|
+ 17 |~~~~~~~~~~~~~.v^^.f.....^....::::^.......f....^.|
+ 18 |~~~~~~~~~~~~~~~.f..f..f..^.f.f^.::::::.f.^ff^.f.|
+ 19 |~~~~~~~~~~~~~ff....f.......f....f.f^.::::..ff..^|
+ 20 |~~~~~~~~~~~~~~.^....f..^f.f...f..f..^...::::....|
+ 21 |~~~~~~~~~~~~~.f.^...f^^ff....f....f...f^^f.::nf^|
+ 22 |~~~~~~~~~~~~~f..^^ffff..f..^..^........f....ffff|
+ 23 |~~~~~~~~~~~~~~f.^.^.f...f...ff...f.^.....f....f.|
+    +------------------------------------------------+
+
+
+
+
+
+
+
+Legend: ~=water .=grass f=forest ^=hills v=wetland r=river
+Legend: :=road-candidate c=coastal n=inland @=selected/inspect
+Message: Golden seed 42; simulation paused.
+Keys: ? help q quit arrows/hjkl move Tab pane Enter inspect m map pass

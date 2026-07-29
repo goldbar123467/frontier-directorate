@@ -2,7 +2,7 @@
 
 Specification ID: `FD-VS1`  
 Version: 1.0-gate-zero  
-Status: frozen pending Gate Zero Warden approval
+Status: frozen; Gate Zero independently approved 2026-07-29
 
 ## Scope and milestone
 

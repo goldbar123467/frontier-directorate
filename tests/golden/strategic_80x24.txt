@@ -1,0 +1,24 @@
+FRONTIER DIRECTORATE | STRATEGIC REGION GRAPH | ADMIN/OMNISCIENT REFERENCE
+Scale: REGION | Tick 0 | Day 1, Year 1 | PAUSED | Terminal: N/A-U01
++------------------------------------------------------------------------------+
+| [R] Quibeyor Reach #4294967297                                               |
+|     owner -> [P] Yornaul Council #4294967300                                 |
+|     member -> [C] Pelnabe Haven #4294967298 @(14,3)                          |
+|     member -> [I] Pelelda Market #4294967299 @(45,21)                        |
+|     river ~> outlet tile #111 @(14,2) (33 tiles)                             |
+|     road  [C] :: [I] candidate (14,3) -> (45,21) (50 tiles)                  |
+|     presence -> [F] Quififi Survey #4294967301                               |
+|     presence -> [F] Yoryorbe Company #4294967302                             |
+|     manifest e0223dd3 | state 15e1d093                                       |
++------------------------------------------------------------------------------+
+
+
+
+
+
+
+
+Legend: [R]=region [P]=polity [C]=coastal [I]=inland [F]=foreign
+Legend: ->=relation ~>=river outlet ::=road candidate @x,y=coordinates
+Message: Golden seed 42; simulation paused.
+Keys: ? help q quit m local-map Tab pane messages replay pass
