@@ -35,6 +35,9 @@ ctest --test-dir build/verify-clang-release -L warden --output-on-failure
 Result: PASS in 32.26 seconds. `test_core` reported 56,110 checks, zero
 failures, 10,000 generation seeds, and 1,000 round trips.
 
+Retained raw CTest log:
+`evidence/updates/U01/raw/fe78cc8/warden-ctest.log`.
+
 ## Cross-compiler sample
 
 GCC Debug and Clang Debug generated seed 42, submitted three PASS intervals,

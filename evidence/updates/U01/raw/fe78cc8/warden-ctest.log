@@ -1,0 +1,23 @@
+Start testing: Jul 29 13:29 UTC
+----------------------------------------------------------
+2/9 Testing: test_core_warden
+2/9 Test: test_core_warden
+Command: "/workspace/build/verify-clang-release/test_core" "--seeds" "10000" "--roundtrips" "1000"
+Directory: /workspace/build/verify-clang-release
+"test_core_warden" start time: Jul 29 13:29 UTC
+Output:
+----------------------------------------------------------
+checks=56110 failures=0 seeds=10000 roundtrips=1000
+<end of output>
+Test time =  32.26 sec
+----------------------------------------------------------
+Test Passed.
+"test_core_warden" end time: Jul 29 13:29 UTC
+"test_core_warden" time elapsed: 00:00:32
+----------------------------------------------------------
+
+End testing: Jul 29 13:29 UTC
+
+campaign =  32.26 sec*proc
+
+warden =  32.26 sec*proc
