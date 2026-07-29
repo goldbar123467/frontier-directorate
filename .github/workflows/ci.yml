@@ -34,7 +34,7 @@ jobs:
             cxx: clang++
             build_type: Release
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Ninja
         run: sudo apt-get update && sudo apt-get install -y ninja-build
       - name: Configure
@@ -53,7 +53,7 @@ jobs:
   asan-ubsan:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Ninja
         run: sudo apt-get update && sudo apt-get install -y ninja-build
       - name: Configure
@@ -74,7 +74,7 @@ jobs:
   tsan:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Ninja
         run: sudo apt-get update && sudo apt-get install -y ninja-build
       - name: Configure
@@ -96,7 +96,7 @@ jobs:
   static-analysis:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Clang tooling and Ninja
         run: >-
           sudo apt-get update &&
@@ -115,7 +115,7 @@ jobs:
   fuzz-smoke:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Clang runtime and Ninja
         run: >-
           sudo apt-get update &&

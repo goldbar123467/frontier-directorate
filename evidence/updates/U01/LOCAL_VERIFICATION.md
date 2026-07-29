@@ -79,10 +79,14 @@ Clang 16 Release, 30 repetitions where specified:
 | Replay record | 228 B | <=2 KiB | pass |
 | Ordinary-step allocations | 0 | exactly 0 | pass |
 
-## TSan limitation
+## TSan environment and hosted execution
 
 GCC and Clang TSan configurations compile. The targeted threaded-world binary
 cannot start in this container: each runtime exits before application code with
 `FATAL: ThreadSanitizer: unexpected memory mapping`. Clang was also tested with
-non-PIE compilation and had the same runtime failure. The GitHub Actions TSan
-job is the pending off-instance execution path.
+non-PIE compilation and had the same runtime failure.
+
+The repaired POSIX-thread harness executed successfully with GCC 13 TSan on a
+GitHub-hosted Ubuntu 24.04 runner. CI run `30457403525` passed all eight jobs at
+commit `993832e`, including the threaded-world check, ASan+UBSan, static
+analysis, both compiler matrices, and all five fuzz smokes.
