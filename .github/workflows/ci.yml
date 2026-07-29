@@ -72,7 +72,11 @@ jobs:
         run: ctest --test-dir build --output-on-failure
 
   tsan:
-    runs-on: ubuntu-24.04
+    # TSan's fixed shadow-memory layout currently crashes during worker startup
+    # on GitHub's Ubuntu 24.04 Azure kernel with both Clang and GCC runtimes.
+    # Keep 24.04 coverage above and run the actual race check on the supported
+    # 22.04 image, rather than suppressing the sanitizer failure.
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Install Ninja
