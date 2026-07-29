@@ -1,9 +1,9 @@
 #include "frontier_directorate/fd.h"
 
+#include <pthread.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <threads.h>
 
 #define THREAD_WORLD_COUNT UINT32_C(4)
 #define THREAD_STEP_COUNT UINT32_C(8)
@@ -63,11 +63,11 @@ static fd_result run_steps(fd_world *world, uint8_t final_hash[32])
     return fd_world_state_hash(world, final_hash, NULL);
 }
 
-static int worker_main(void *opaque)
+static void *worker_main(void *opaque)
 {
     worker_input *worker = (worker_input *)opaque;
     worker->result = run_steps(worker->world, worker->final_hash);
-    return worker->result == FD_OK ? 0 : 1;
+    return worker->result == FD_OK ? worker : NULL;
 }
 
 int main(void)
@@ -77,7 +77,7 @@ int main(void)
     fd_content_manifest content;
     fd_context *context = NULL;
     worker_input workers[THREAD_WORLD_COUNT];
-    thrd_t threads[THREAD_WORLD_COUNT];
+    pthread_t threads[THREAD_WORLD_COUNT];
     uint8_t oracle_hashes[THREAD_WORLD_COUNT][32];
     uint32_t index;
     uint32_t created = UINT32_C(0);
@@ -107,17 +107,18 @@ int main(void)
     }
     if (failed == 0) {
         for (index = 0U; index < THREAD_WORLD_COUNT; ++index) {
-            if (thrd_create(&threads[index], worker_main, &workers[index]) !=
-                thrd_success) {
+            if (pthread_create(&threads[index], NULL, worker_main,
+                               &workers[index]) != 0) {
                 failed = 1;
                 break;
             }
             ++created;
         }
         for (index = 0U; index < created; ++index) {
-            int thread_result = 1;
-            if (thrd_join(threads[index], &thread_result) != thrd_success ||
-                thread_result != 0 || workers[index].result != FD_OK ||
+            void *thread_result = NULL;
+            if (pthread_join(threads[index], &thread_result) != 0 ||
+                thread_result != &workers[index] ||
+                workers[index].result != FD_OK ||
                 memcmp(workers[index].final_hash,
                        oracle_hashes[index], 32U) != 0) {
                 failed = 1;
