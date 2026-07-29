@@ -19,9 +19,15 @@
 *.profdata
 compile_commands.json
 
+# libFuzzer crash and resource-limit artifacts
+/crash-*
+/leak-*
+/oom-*
+/timeout-*
+/slow-unit-*
+
 # Editor/OS noise
 .cache/
 .DS_Store
 *.swp
 *~
-

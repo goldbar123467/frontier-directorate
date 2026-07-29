@@ -1,0 +1,139 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.name }} ${{ matrix.build_type }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: GCC
+            cc: gcc
+            cxx: g++
+            build_type: Debug
+          - name: GCC
+            cc: gcc
+            cxx: g++
+            build_type: Release
+          - name: Clang
+            cc: clang
+            cxx: clang++
+            build_type: Debug
+          - name: Clang
+            cc: clang
+            cxx: clang++
+            build_type: Release
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Configure
+        run: >-
+          cmake -S . -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -DCMAKE_C_COMPILER=${{ matrix.cc }}
+          -DCMAKE_CXX_COMPILER=${{ matrix.cxx }}
+          -DFD_WARNINGS_AS_ERRORS=ON
+          -DFD_BUILD_BENCHMARKS=OFF
+      - name: Build
+        run: cmake --build build --parallel 4
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+  asan-ubsan:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Configure
+        run: >-
+          cmake -S . -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=Debug
+          -DFD_WARNINGS_AS_ERRORS=ON
+          -DFD_BUILD_BENCHMARKS=OFF
+          -DFD_ENABLE_ASAN_UBSAN=ON
+      - name: Build
+        run: cmake --build build --parallel 4
+      - name: Test
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build --output-on-failure
+
+  tsan:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Configure
+        run: >-
+          cmake -S . -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCMAKE_C_COMPILER=gcc
+          -DCMAKE_CXX_COMPILER=g++
+          -DFD_WARNINGS_AS_ERRORS=ON
+          -DFD_BUILD_BENCHMARKS=OFF
+          -DFD_ENABLE_TSAN=ON
+      - name: Build
+        run: cmake --build build --parallel 4
+      - name: Threaded-world test
+        env:
+          TSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build -R test_threads --output-on-failure
+
+  static-analysis:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Clang tooling and Ninja
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get install -y clang clang-tidy ninja-build
+      - name: Configure compilation database
+        run: >-
+          cmake -S . -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCMAKE_C_COMPILER=clang
+          -DCMAKE_CXX_COMPILER=clang++
+          -DFD_WARNINGS_AS_ERRORS=ON
+          -DFD_BUILD_BENCHMARKS=OFF
+      - name: Analyze production sources
+        run: run-clang-tidy -p build -j 2 -quiet '^.*/src/'
+
+  fuzz-smoke:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Clang runtime and Ninja
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get install -y clang libclang-rt-dev llvm ninja-build
+      - name: Configure
+        run: >-
+          cmake -S . -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCMAKE_C_COMPILER=clang
+          -DCMAKE_CXX_COMPILER=clang++
+          -DFD_WARNINGS_AS_ERRORS=ON
+          -DFD_BUILD_TESTS=OFF
+          -DFD_BUILD_BENCHMARKS=OFF
+          -DFD_BUILD_FUZZERS=ON
+      - name: Build fuzzers
+        run: cmake --build build --parallel 4
+      - name: Smoke fuzzers
+        run: |
+          for target in fuzz_config fuzz_save fuzz_replay fuzz_action fuzz_api; do
+            "./build/${target}" -runs=100 -timeout=10 -rss_limit_mb=2048
+          done

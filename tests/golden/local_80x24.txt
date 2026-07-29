@@ -1,0 +1,24 @@
+FRONTIER DIRECTORATE | LOCAL TILE MAP | ADMIN/OMNISCIENT REFERENCE
+Tick 0 | Day 1, Year 1 | PAUSED | Terminal: N/A-U01
+     012345678901234567890123456789012345678901234567   INSPECTOR | immutable C
+    +------------------------------------------------+  Scope: REFERENCE snapsho
+  0 |@~~~~~~~~~~~~f.^...^.^...^f..f.....f..fff......f|  Selected: (0,0)
+  1 |~~~~~~~~~~~~~~..f...f..f.f...f.....ff..v..v..^v.|  Glyph: @ over ~
+  2 |~~~~~~~~~~~~~~rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.|  Terrain: water
+  3 |~~~~~~~~~~~~~~cvff...fvv.v.....^.v.fv..fff.v..^.|  Elev/rain: 0cm / 1400mm
+  4 |~~~~~~~~~~~~~~::^^...ff..f......f..^...f.f.ff..f|  Overlays: none
+  5 |~~~~~~~~~~~~~~.:.^.f...^....f...f....f^..^.....f|  Settlement: none
+  6 |~~~~~~~~~~~~~.v:.f^.ff^..^^.^f.^.f........^...f.|  Region: Quibeyor Reach #
+  7 |~~~~~~~~~~~~~~~:...^.....^..ff...^.f......f^....|  Tile owner: none
+  8 |~~~~~~~~~~~~~~^:..^^f.f.^f....^f.^f.f.f.^^....ff|  Local polity: Yornaul Co
+  9 |~~~~~~~~~~~~~~~:ffff..^^f.....^fff.....fff.f.ff.|  Foreign A: Quififi Surve
+ 10 |~~~~~~~~~~~~~~~:^...f..f.f^.^fff........f...^...|  Foreign B: Yoryorbe Comp
+ 11 |~~~~~~~~~~~~~..:::::...f......f..........f^...f.|  Manifest: e0223dd3
+ 12 |~~~~~~~~~~~~~~~.^..:^^^..f^f.....ff^.....f.f..^.|  State: 15e1d093
+ 13 |~~~~~~~~~~~~~~....^::....f..f^.^^ff.....f.^^.f.^|  Seed: 000000000000002a
+ 14 |~~~~~~~~~~~~~.....f.::.fff..f........ff.ff^...ff|
+    +------------------------------------------------+
+Legend: ~=water .=grass f=forest ^=hills v=wetland r=river
+Legend: :=road-candidate c=coastal n=inland @=selected/inspect
+Message: Golden seed 42; simulation paused.
+Keys: ? help q quit arrows/hjkl move Tab pane Enter inspect m map pass

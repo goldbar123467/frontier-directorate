@@ -9,7 +9,7 @@ product update. State changes require an evidence-report link and reviewer.
 
 | Update | Stable ID | Name | State | Evidence |
 |---:|---|---|---|---|
-| 01 | FD-U01 | Procedural Coastal Corridor | SPECIFIED | `docs/specs/INITIAL_VERTICAL_SLICE.md` |
+| 01 | FD-U01 | Procedural Coastal Corridor | IMPLEMENTING | `docs/evidence/updates/U01.md` |
 | 02 | FD-U02 | Expedition Personnel | UNSPECIFIED | — |
 | 03 | FD-U03 | Expedition Inventory | UNSPECIFIED | — |
 | 04 | FD-U04 | Camps and Rest | UNSPECIFIED | — |
@@ -65,4 +65,4 @@ product update. State changes require an evidence-report link and reviewer.
 | Date | Change | Authority |
 |---|---|---|
 | 2026-07-29 | Registry created; U01 specified by frozen initial-slice document; all other updates honestly remain unspecified | Program director, pending Gate Zero Warden review |
-
+| 2026-07-29 | Gate Zero independently passed on tree `ec0d09f`; U01 entered IMPLEMENTING; no verification claim | Program director |
